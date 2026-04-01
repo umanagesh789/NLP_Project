@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>English to Telugu Translator</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<style>
+		body {
+			background: #f4f6fb;
+			font-family: 'Segoe UI', Arial, sans-serif;
+			display: flex;
+			flex-direction: column;
+			min-height: 100vh;
+			margin: 0;
+		}
+		.container {
+			margin: auto;
+			background: #fff;
+			padding: 2.5rem 2rem 2rem 2rem;
+			border-radius: 12px;
+			box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+			max-width: 420px;
+			width: 100%;
+			text-align: center;
+		}
+		h1 {
+			color: #2d3a4b;
+			margin-bottom: 1.5rem;
+			font-size: 1.7rem;
+			letter-spacing: 1px;
+		}
+		form {
+			margin-bottom: 1.5rem;
+		}
+		input[type="text"] {
+			width: 90%;
+			padding: 0.7rem;
+			border: 1px solid #d1d9e6;
+			border-radius: 6px;
+			font-size: 1rem;
+			margin-bottom: 1rem;
+			outline: none;
+			transition: border 0.2s;
+		}
+		input[type="text"]:focus {
+			border: 1.5px solid #4a90e2;
+		}
+		button {
+			background: #4a90e2;
+			color: #fff;
+			border: none;
+			padding: 0.7rem 2.2rem;
+			border-radius: 6px;
+			font-size: 1rem;
+			cursor: pointer;
+			transition: background 0.2s;
+		}
+		button:hover {
+			background: #357abd;
+		}
+		.output-section {
+			margin-top: 1.5rem;
+			padding: 1rem;
+			background: #f0f4fa;
+			border-radius: 8px;
+			min-height: 2.2rem;
+			color: #222;
+			font-size: 1.1rem;
+			word-break: break-word;
+		}
+		@media (max-width: 500px) {
+			.container {
+				padding: 1.2rem 0.5rem;
+			}
+			input[type="text"] {
+				width: 100%;
+			}
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<h1>English to Telugu Translator</h1>
+		<form method="POST" autocomplete="off">
+			<input type="text" name="english_text" placeholder="Enter English sentence" value="{{ input_text|e }}" required>
+			<br>
+			<button type="submit">Translate</button>
+		</form>
+		<div class="output-section">
+			{% if translation %}
+				<strong>Telugu:</strong> {{ translation }}
+			{% endif %}
+		</div>
+	</div>
+</body>
+</html>
